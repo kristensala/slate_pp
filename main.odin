@@ -4,9 +4,11 @@ import "core:fmt"
 import sdl "vendor:sdl3"
 
 main :: proc() {
-	fmt.println("Hellope")
-
-	window := sdl.CreateWindow("title", 1500, 1500, {})
+	window := sdl.CreateWindow("Slate++", 1500, 1500, {})
+	if window == nil {
+		fmt.eprintln("Could not create a window")
+		return
+	}
 	defer sdl.DestroyWindow(window)
 
 	renderer := sdl.CreateRenderer(window, nil)
@@ -27,8 +29,15 @@ main :: proc() {
 				running = false
 				break game_loop
 			}
-		}
-		sdl.SetRenderDrawColor(renderer, bg_color.r, bg_color.g, bg_color.b, bg_color.a)
+        }
+
+        sdl.SetRenderDrawColor(
+            renderer,
+            bg_color.r,
+            bg_color.g,
+            bg_color.b,
+            bg_color.a
+        )
 
 		// Drawing should be done between RenderClear and RenderPresent
 		sdl.RenderClear(renderer)
