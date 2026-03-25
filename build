@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+odin build . -out:slate --extra-linker-flags:'-L./lib/sdl3/linux'
+patchelf --set-rpath '$ORIGIN/lib/sdl3/linux' ./slate

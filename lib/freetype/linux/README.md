@@ -1,1 +1,0 @@
-here goes *libfreetype.so*
