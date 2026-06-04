@@ -6,5 +6,5 @@ odin version: dev-2026-03-nightly
 
 
 ## Tech:
-- freetype + harfbuzz -> probably not
+- freetype
 - sdl3
